@@ -21,9 +21,27 @@ class Program
         userNum = int.Parse(num);
         }
 
-        Console.WriteLine(numbers.Count);
+        int smallestPositive = numbers.Max();
+
+        for (int i = 0; i < numbers.Count; i++)
+        {
+            if (numbers[i] < smallestPositive && numbers[i] > 0)
+            {
+                smallestPositive = numbers[i];
+            }
+        }
+
+        // Console.WriteLine(numbers.Count);
         Console.WriteLine($"The sum is: {numbers.Sum()}");
         Console.WriteLine($"The average is: {numbers.Average()}");
         Console.WriteLine($"The largest number is {numbers.Max()}");
+        Console.WriteLine($"The smallest positive number is: {smallestPositive}");
+
+        Console.WriteLine("The sorted list is: ");
+        numbers.Sort();
+        foreach (int number in numbers)
+        {
+            Console.WriteLine(number);
+        }
     }
 }
