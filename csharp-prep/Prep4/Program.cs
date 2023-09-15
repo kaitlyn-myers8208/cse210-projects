@@ -1,9 +1,29 @@
 using System;
+using System.Collections.Generic;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Prep4 World!");
+        Console.WriteLine("Enter a list of numbers, type 0 when finished.");
+
+        List<int> numbers = new List<int>();
+    
+        Console.Write("Enter number: ");
+        string num = Console.ReadLine();
+        int userNum = int.Parse(num);
+
+        while (userNum != 0)
+        {
+        numbers.Add(userNum);
+        Console.Write("Enter number: ");
+        num = Console.ReadLine();
+        userNum = int.Parse(num);
+        }
+
+        Console.WriteLine(numbers.Count);
+        Console.WriteLine($"The sum is: {numbers.Sum()}");
+        Console.WriteLine($"The average is: {numbers.Average()}");
+        Console.WriteLine($"The largest number is {numbers.Max()}");
     }
 }
