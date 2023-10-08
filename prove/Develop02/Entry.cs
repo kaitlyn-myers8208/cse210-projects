@@ -16,7 +16,6 @@ public class Entry
             "What can I do to prepare myself for tomorrow?",
             "How am I doing on my goals?"
         };
-        // Create a prompt class?
 
     public Entry()
     {
@@ -36,6 +35,7 @@ public class Entry
     public void NewEntry()
     {
         GivePrompt();
+        Console.Write("> ");
         UserResponse = Console.ReadLine();
         // Console.WriteLine(UserResponse);
     }

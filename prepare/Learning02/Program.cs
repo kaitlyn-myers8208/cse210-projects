@@ -10,6 +10,13 @@ class Program
         job1.StartYear = 2024;
         job1.EndYear = 2032;
 
+        //Job job1 = new Job
+        //{
+        //  JobTitle = "Software Engineer",
+        //  Compnay = "Microsoft",
+        //}
+
+
         // Console.WriteLine ($"{job1.Company}");
         // job1.DisplayJobInfo();
 

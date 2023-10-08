@@ -13,7 +13,6 @@ public class Journal
         foreach (Entry e in JournalEntries)
         {
             e.DisplayEntry();
-            // make it so the list is sorted by date
         }
     }
     public void SaveJournal()
@@ -22,7 +21,7 @@ public class Journal
         string fileName = Console.ReadLine();
         Console.WriteLine("Saving file...");
 
-        using (StreamWriter outputFile = new StreamWriter(fileName))
+        using (StreamWriter outputFile = new StreamWriter(fileName, true))
         {
             foreach (Entry e in JournalEntries)
             {
@@ -30,6 +29,7 @@ public class Journal
             }
         }
         Console.WriteLine("File saved.");
+
     }
     public void LoadJournal()
     {
