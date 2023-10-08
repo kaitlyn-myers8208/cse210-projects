@@ -15,9 +15,27 @@ class Program
         {
             if (userOption == 1)
             {
+                Console.WriteLine("Do you want to write a past entry? (Y/N)");
+                string userAnswer = Console.ReadLine();
+
+                if (userAnswer == "Y")
+                {
+                    Entry oldEntry = new Entry();
+                    oldEntry.NewEntry();
+                    Console.WriteLine("What is the date of this entry? (MM/DD/YYYY)");
+                    oldEntry.Date = Console.ReadLine();
+                    myJournal.JournalEntries.Add(oldEntry);
+                }
+                else if (userAnswer == "N")
+                {
                 Entry entry = new Entry();
                 entry.NewEntry();
                 myJournal.JournalEntries.Add(entry);
+                }
+                else
+                {
+                    Console.WriteLine("That isn't a valid response.");
+                }
             }
             else if (userOption == 2) 
             {

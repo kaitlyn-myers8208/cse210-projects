@@ -13,31 +13,34 @@ public class Journal
         foreach (Entry e in JournalEntries)
         {
             e.DisplayEntry();
+            // make it so the list is sorted by date
         }
     }
     public void SaveJournal()
     {
         Console.WriteLine("What is the file name? ");
         string fileName = Console.ReadLine();
+        Console.WriteLine("Saving file...");
 
-        string[] lines = System.IO.File.ReadAllLines(fileName);
-
-        foreach (string line in lines)
+        using (StreamWriter outputFile = new StreamWriter(fileName))
         {
-            string[] parts = line.Split(",");
-
-            string firstName = parts[0];
-            string lastName = parts[1];
+            foreach (Entry e in JournalEntries)
+            {
+                outputFile.WriteLine($"Date: {e.Date} - Prompt: {e.Prompt}\n{e.UserResponse}\n");
+            }
         }
+        Console.WriteLine("File saved.");
     }
     public void LoadJournal()
     {
         Console.WriteLine("What is the file name? ");
         string fileName = Console.ReadLine();
+        Console.WriteLine("Loading file...");
 
-        using (StreamWriter outputFile = new StreamWriter(fileName))
+        string[] lines = System.IO.File.ReadAllLines(fileName);
+        foreach (string line in lines)
         {
-            outputFile.WriteLine(ListEntries);
+            Console.WriteLine(line);            
         }
     }
 }
