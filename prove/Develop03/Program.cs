@@ -16,23 +16,57 @@ class Program
         Console.Clear();
         if (randScripture == 1)
         {
+            scripture1.ConvertToList();
             scripture1.DisplayScripture();
         }
         else if (randScripture == 2)
         {
+            scripture2.ConvertToList();
             scripture2.DisplayScripture();
         }
-
+        Console.WriteLine();
         Console.WriteLine("Press enter to continue or type 'quit' to finish: ");
         string userResponse = Console.ReadLine();
 
-        if (userResponse.Length == 0)
+        // while (userResponse.Length == 0 && (scripture1.count < scripture1.numElements || scripture2.count < scripture2.numElements))
+        while (userResponse.Length == 0)
         {
-            Console.WriteLine("Removing words");
+            if (randScripture == 1)
+            {
+                if (scripture1.count >= scripture1.numElements)
+                {
+                    return;
+                }
+                Console.Clear();
+                scripture1.HideWords();
+                Console.WriteLine();
+                Console.WriteLine("Press enter to continue or type 'quit' to finish: ");
+                userResponse = Console.ReadLine();
+                // Console.Clear();
+            }
+            else if (randScripture == 2)
+            {
+                if (scripture2.count >= scripture2.numElements)
+                {
+                    return;
+                }
+                Console.Clear();
+                scripture2.HideWords();
+                Console.WriteLine();
+                Console.WriteLine("Press enter to continue or type 'quit' to finish: ");
+                userResponse = Console.ReadLine();
+                // Console.Clear();
+            }      
+            // Console.Clear();          
         }
-        else if (userResponse.ToLower() == "quit")
+
+        if (userResponse == "quit")
         {
             return;
+        }
+        else
+        {
+            Console.WriteLine("Error: incorrect input");
         }
     }
 }

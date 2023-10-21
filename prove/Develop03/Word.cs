@@ -15,12 +15,8 @@ public class Word
     {
         _isHidden = false;
     }
-    public bool IsHidden()
+    public void SetHidden()
     {
-        if (_word.Length == 0)
-        {
-            _isHidden = true;
-        }
-        return _isHidden;   
+        _isHidden = true;
     }
 }
