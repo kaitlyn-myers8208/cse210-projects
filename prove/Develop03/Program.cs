@@ -7,12 +7,8 @@ class Program
         Random rnd = new Random(); 
         int randScripture = rnd.Next(1,3);
 
-
         Reference reference1 = new Reference("Matthew", "3", "11");
         Reference reference2 = new Reference("John", "8", "11", "12");
-
-        // reference1.DisplayReference();
-        // reference2.DisplayReference();
 
         Scripture scripture1 = new Scripture("I indeed baptize you with water unto repentance: but he that cometh after me is mightier than I, whose shoes I am not worthy to bear: he shall baptize you with the Holy Ghost, and with fire:", reference1);
         Scripture scripture2 = new Scripture("She said, No man, Lord. And Jesus said unto her, Neither do I condemn thee: go, and sin no more. Then spake Jesus again unto them, saying, I am the light of the world: he that followeth me shall not walk in darkness, but shall have the light of life.", reference2);
@@ -26,8 +22,6 @@ class Program
         {
             scripture2.DisplayScripture();
         }
-        // scripture1.DisplayScripture();
-        // scripture2.DisplayScripture();
 
         Console.WriteLine("Press enter to continue or type 'quit' to finish: ");
         string userResponse = Console.ReadLine();

@@ -24,34 +24,34 @@ public class Reference
         _secondVerse = secondVerse;
 
     }
-    // public void DisplayReference()
-    // {
-    //     if(_secondVerse.Length > 0)
-    //     {
-    //         Console.WriteLine($"{_book} {_chapter}:{_verse}-{_secondVerse}");
-    //     }
-    //     else if(_secondVerse.Length == 0)
-    //     {
-    //         Console.WriteLine($"{_book} {_chapter}:{_verse}");
-    //     }
-    //     else
-    //     {
-    //         Console.WriteLine("That's not a correct verse");
-    //     }
-    // }
-    public string DisplayReference()
+    public void DisplayReference()
     {
         if(_secondVerse.Length > 0)
         {
-            return _book + " " + _chapter + ":" + _verse + "-" + _secondVerse;
+            Console.Write($"{_book} {_chapter}:{_verse}-{_secondVerse} ");
         }
         else if(_secondVerse.Length == 0)
         {
-            return _book + " " + _chapter + ":" + _verse;
+            Console.Write($"{_book} {_chapter}:{_verse} ");
         }
         else
         {
-            return "That's not a correct verse";
+            Console.WriteLine("That's not a correct verse");
         }
     }
+    // public string DisplayReference()
+    // {
+    //     if(_secondVerse.Length > 0)
+    //     {
+    //         return _book + " " + _chapter + ":" + _verse + "-" + _secondVerse;
+    //     }
+    //     else if(_secondVerse.Length == 0)
+    //     {
+    //         return _book + " " + _chapter + ":" + _verse;
+    //     }
+    //     else
+    //     {
+    //         return "That's not a correct verse";
+    //     }
+    // }
 }
