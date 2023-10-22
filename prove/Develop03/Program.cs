@@ -32,7 +32,7 @@ class Program
         {
             if (randScripture == 1)
             {
-                if (scripture1.count == scripture1.numElements)
+                if (scripture1.GetCount() == scripture1.GetNumElements())
                 {
                     return;
                 }
@@ -44,7 +44,7 @@ class Program
             }
             else if (randScripture == 2)
             {
-                if (scripture2.count == scripture2.numElements)
+                if (scripture2.GetCount() == scripture2.GetNumElements())
                 {
                     return;
                 }

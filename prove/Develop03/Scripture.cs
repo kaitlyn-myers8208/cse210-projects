@@ -3,17 +3,25 @@ public class Scripture
     public string _textBodyString { get; set; }
     public Reference _reference { get; set; }
     private List<Word> _textbody = new List<Word>();
-    public int count;
-    public int numElements;
+    private int _count;
+    private int _numElements;
     
     public Scripture(string textBody, Reference reference)
     {
         _textBodyString = textBody;
         _reference = reference;      
-        count = 0;  
+        _count = 0;  
     }
 
 
+    public int GetCount()
+    {
+        return _count;
+    }
+    public int GetNumElements()
+    {
+        return _numElements;
+    }
     public void ConvertToList()
     {
         string[] scriptureArray = _textBodyString.Split(" ");
@@ -24,7 +32,7 @@ public class Scripture
             word.SetWord(scriptureArray[i]);
             _textbody.Add(word);
         }
-        numElements = _textbody.Count();
+        _numElements = _textbody.Count();
     }
     public void DisplayText()
     {
@@ -53,8 +61,8 @@ public class Scripture
     {
         int remainder = _textbody.Count() % 8;
         // Console.WriteLine(remainder);
-        // Console.WriteLine(numElements);
-        if (count == numElements - remainder)
+        // Console.WriteLine(_numElements);
+        if (_count == _numElements - remainder)
         {
             for (int j = 0; j < remainder; j++)
                 {
@@ -70,13 +78,13 @@ public class Scripture
                         j--;
                     }
                 }
-            count = count + remainder;
-            // Console.WriteLine(count);
+            _count = _count + remainder;
+            // Console.WriteLine(_count);
             DisplayScripture();
-            // Console.WriteLine($"The end count is {count}. Ending the program, sir");
-            // Console.WriteLine(numElements - remainder);
+            // Console.WriteLine($"The end _count is {_count}. Ending the program, sir");
+            // Console.WriteLine(_numElements - remainder);
             // Console.WriteLine($"Remainder: {remainder}");
-            // Console.WriteLine($"Number of elements: {numElements}");
+            // Console.WriteLine($"Number of elements: {_numElements}");
             return;
         }
         else
@@ -97,8 +105,8 @@ public class Scripture
                     i--;
                 }
             }
-            count += 8;
-            // Console.WriteLine(count);
+            _count += 8;
+            // Console.WriteLine(_count);
             DisplayScripture();
         } 
     }
