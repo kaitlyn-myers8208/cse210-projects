@@ -73,8 +73,11 @@ public class Scripture
             count = count + remainder;
             // Console.WriteLine(count);
             DisplayScripture();
+            // Console.WriteLine($"The end count is {count}. Ending the program, sir");
+            // Console.WriteLine(numElements - remainder);
+            // Console.WriteLine($"Remainder: {remainder}");
+            // Console.WriteLine($"Number of elements: {numElements}");
             return;
-
         }
         else
         {
