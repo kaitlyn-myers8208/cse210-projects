@@ -32,10 +32,6 @@ class Program
         {
             if (randScripture == 1)
             {
-                if (scripture1.count >= scripture1.numElements)
-                {
-                    return;
-                }
                 Console.Clear();
                 scripture1.HideWords();
                 Console.WriteLine();
@@ -44,10 +40,6 @@ class Program
             }
             else if (randScripture == 2)
             {
-                if (scripture2.count >= scripture2.numElements)
-                {
-                    return;
-                }
                 Console.Clear();
                 scripture2.HideWords();
                 Console.WriteLine();
