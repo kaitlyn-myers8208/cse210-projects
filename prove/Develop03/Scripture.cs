@@ -82,12 +82,11 @@ public class Scripture
             {
                 Random rnd = new Random(); 
                 int randNum = rnd.Next(0,_textbody.Count);
-
                 // Console.WriteLine("Making a new number");
-
                 if (_textbody[randNum]._isHidden == false)
                 {
-                    _textbody[randNum].SetWord("___");
+                    string newString = new string('_', _textbody[randNum].GetWord().Length);
+                    _textbody[randNum].SetWord(newString);
                     _textbody[randNum].SetHidden();
                 }
                 else

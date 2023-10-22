@@ -28,7 +28,6 @@ class Program
         Console.WriteLine("Press enter to continue or type 'quit' to finish: ");
         string userResponse = Console.ReadLine();
 
-        // while (userResponse.Length == 0 && (scripture1.count < scripture1.numElements || scripture2.count < scripture2.numElements))
         while (userResponse.Length == 0)
         {
             if (randScripture == 1)
@@ -42,7 +41,6 @@ class Program
                 Console.WriteLine();
                 Console.WriteLine("Press enter to continue or type 'quit' to finish: ");
                 userResponse = Console.ReadLine();
-                // Console.Clear();
             }
             else if (randScripture == 2)
             {
@@ -55,9 +53,7 @@ class Program
                 Console.WriteLine();
                 Console.WriteLine("Press enter to continue or type 'quit' to finish: ");
                 userResponse = Console.ReadLine();
-                // Console.Clear();
             }      
-            // Console.Clear();          
         }
 
         if (userResponse == "quit")
