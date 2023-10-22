@@ -52,26 +52,9 @@ public class Scripture
     public void HideWords()
     {
         int remainder = _textbody.Count() % 8;
-        if (count <= (numElements - remainder))
-        {
-            for (int i = 0; i < 8; i++)
-            {
-                Random rnd = new Random(); 
-                int randNum = rnd.Next(0,_textbody.Count);
-                if (_textbody[randNum]._isHidden == false)
-                {
-                    _textbody[randNum].SetWord("___");
-                    _textbody[randNum].SetHidden();
-                }
-                else
-                {
-                    i--;
-                }
-                count++;
-            }
-            DisplayScripture();
-        }
-        else
+        // Console.WriteLine(remainder);
+        // Console.WriteLine(numElements);
+        if (count == numElements - remainder)
         {
             for (int j = 0; j < remainder; j++)
                 {
@@ -81,16 +64,40 @@ public class Scripture
                     {
                         _textbody[randNum2].SetWord("___");
                         _textbody[randNum2].SetHidden();
-                    }  
-                    count++;     
+                    }
+                    else
+                    {
+                        j--;
+                    }
                 }
-                DisplayScripture();
+            count = count + remainder;
+            // Console.WriteLine(count);
+            DisplayScripture();
+            return;
+
         }
-        
-        // foreach (Word w in _textbody)
-        // {
-        //     Console.Write(w.GetWord() + " ");
-        // }       
-        
+        else
+        {
+            for (int i = 0; i < 8; i++)
+            {
+                Random rnd = new Random(); 
+                int randNum = rnd.Next(0,_textbody.Count);
+
+                // Console.WriteLine("Making a new number");
+
+                if (_textbody[randNum]._isHidden == false)
+                {
+                    _textbody[randNum].SetWord("___");
+                    _textbody[randNum].SetHidden();
+                }
+                else
+                {
+                    i--;
+                }
+            }
+            count += 8;
+            // Console.WriteLine(count);
+            DisplayScripture();
+        } 
     }
 }
