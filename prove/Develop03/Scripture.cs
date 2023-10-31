@@ -1,7 +1,7 @@
 public class Scripture
 {
-    public string _textBodyString { get; set; }
-    public Reference _reference { get; set; }
+    private string _textBodyString;
+    private Reference _reference;
     private List<Word> _textbody = new List<Word>();
     private int _count;
     private int _numElements;
@@ -68,7 +68,7 @@ public class Scripture
                 {
                     Random rnd2 = new Random(); 
                     int randNum2 = rnd2.Next(0,_textbody.Count);
-                    if (_textbody[randNum2]._isHidden == false)
+                    if (_textbody[randNum2].GetIsHidden() == false)
                     {
                         _textbody[randNum2].SetWord("___");
                         _textbody[randNum2].SetHidden();
@@ -94,7 +94,7 @@ public class Scripture
                 Random rnd = new Random(); 
                 int randNum = rnd.Next(0,_textbody.Count);
                 // Console.WriteLine("Making a new number");
-                if (_textbody[randNum]._isHidden == false)
+                if (_textbody[randNum].GetIsHidden() == false)
                 {
                     string newString = new string('_', _textbody[randNum].GetWord().Length);
                     _textbody[randNum].SetWord(newString);

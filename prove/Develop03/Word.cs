@@ -1,7 +1,7 @@
 public class Word
 {
     private string _word;
-    public bool _isHidden { get; set; }
+    private bool _isHidden;
 
     public void SetWord(string word)
     {
@@ -18,5 +18,9 @@ public class Word
     public void SetHidden()
     {
         _isHidden = true;
+    }
+    public bool GetIsHidden()
+    {
+        return _isHidden;
     }
 }

@@ -2,10 +2,10 @@ using System.Threading.Tasks.Dataflow;
 
 public class Reference
 {
-    public string _book { get; set; }
-    public string _chapter { get; set; }
-    public string _verse { get; set; }
-    public string _secondVerse { get; set; }
+    private string _book;
+    private string _chapter;
+    private string _verse;
+    private string _secondVerse;
 
     
     public Reference(string book, string chapter, string verse)
