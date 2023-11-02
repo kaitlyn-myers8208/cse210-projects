@@ -13,13 +13,7 @@ public class Activity
         NameActivity = nameActivity;
         Duration = 0;
     }
-
-    // public void DisplayStartingOptions()
-    // {
-    //     Console.WriteLine("Menu Options: ");
-    //     Console.WriteLine(" 1. Start breathing activity \n 2. Start reflecting activity \n 3. Start listing activity \n 4. Quit ");
-    //     Console.Write("Select a choice from the menu: ");
-    // }
+    
     public void DisplayStartingMessage()
     {
         Console.WriteLine($"Welcome to the {NameActivity}.\n");
