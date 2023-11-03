@@ -40,7 +40,7 @@ public class ReflectionActivity : Activity
         string userResponse = Console.ReadLine();
         if(userResponse.Length > 0)
         {
-            // System.Environment.Exit(1);
+            System.Environment.Exit(1);
         }
 
         Console.WriteLine("Now ponder on each of the following questions as they related to this experience. \n");
