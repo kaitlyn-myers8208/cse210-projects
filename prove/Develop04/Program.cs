@@ -30,7 +30,7 @@ class Program
         {
             ListingActivity listingActivity = new ListingActivity("Listing Activity");
             listingActivity.DisplayStartingMessage();
-
+            listingActivity.DisplayListingActivity();
             listingActivity.DisplayEndingMessage();
         }
         else if(userChoice == 4)
