@@ -5,6 +5,7 @@ public class Activity
     public string NameActivity { get; set; }
     public string Description { get; set; }
     public int Duration { get; set; }
+    public int TotalDuration { get; set; }
     public string DurationString { get; set; }
     // private DateTime StartTime;
 
@@ -21,13 +22,14 @@ public class Activity
         Console.Write("How long, in seconds, would you like for your session? ");
         DurationString = Console.ReadLine();
         Duration = int.Parse(DurationString);
+        TotalDuration = Duration;
 
     }
     public void DisplayEndingMessage()
     {
         Console.WriteLine("Good job!");
         DisplayShortTimer();
-        Console.WriteLine($"You completed a {NameActivity} for {Duration} seconds");
+        Console.WriteLine($"You completed a {NameActivity} for {TotalDuration} seconds");
         DisplayShortTimer();
         return;
     }

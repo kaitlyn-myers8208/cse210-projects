@@ -9,7 +9,7 @@ public class BreathingActivity : Activity
     {
         Console.Clear();
         Console.WriteLine("Get ready...");
-        DisplayTimer();
+        DisplayShortTimer();
         Console.WriteLine();
 
         DateTime startTime = DateTime.Now;
@@ -46,6 +46,20 @@ public class BreathingActivity : Activity
             Thread.Sleep(1000);
             Console.WriteLine("\n");
             currentTime = DateTime.Now;
+        }
+
+        Console.WriteLine("Do you want to go for a little longer? (Y/N)");
+        string userResponse = Console.ReadLine();
+
+        if(userResponse == "Y")
+        {
+            TotalDuration += 15;
+            Duration = 15;
+            DisplayBreathingActivity();
+        }
+        else
+        {
+            return;
         }
     }
 }
