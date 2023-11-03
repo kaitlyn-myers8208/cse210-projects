@@ -7,9 +7,10 @@ public class BreathingActivity : Activity
 
     public void DisplayBreathingActivity()
     {
-        Console.WriteLine("Get ready...\n");
-        //display timer
-        Thread.Sleep(1000);
+        Console.Clear();
+        Console.WriteLine("Get ready...");
+        DisplayTimer();
+        Console.WriteLine();
 
         DateTime startTime = DateTime.Now;
         DateTime futureTime = startTime.AddSeconds(Duration);

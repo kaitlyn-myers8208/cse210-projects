@@ -26,50 +26,98 @@ public class Activity
     public void DisplayEndingMessage()
     {
         Console.WriteLine("Good job!");
-        Thread.Sleep(1000);
+        // Thread.Sleep(1000);
+        DisplayShortTimer();
         Console.WriteLine($"You completed a {NameActivity} for {Duration} seconds");
-        Thread.Sleep(2000);
+        // Thread.Sleep(2000);
+        // DisplayShortTimer();
         return;
+    }
+    public void DisplayShortTimer()
+    {
+        List<string> animationStrings = new List<string>()
+        {
+            "|",
+            "/",
+            "-",
+            "\\",
+        };
+
+        foreach (string s in animationStrings)
+        {
+            Console.Write(s);
+            Thread.Sleep(600);
+            Console.Write("\b \b");
+        }
     }
     public void DisplayTimer()
     {
-        for(int i = 0; i < Duration; i++)
+        List<string> animationStrings = new List<string>()
         {
-            // Console.Write("*");
-            
-            // Thread.Sleep(800);
-            // Console.Write("\b\b");
-            // Console.Write(" *");
+            "|",
+            "/",
+            "-",
+            "\\",
+            "|",
+            "/",
+            "-",
+            "\\",
+        };
 
-            // Thread.Sleep(800);
-            // Console.Write("\b\b\b");
-            // Console.Write("  *");
-
-            // Thread.Sleep(800);
-            // Console.Write("\b\b\b\b");
-            // Console.Write("   *");
-
-            // Thread.Sleep(800);
-            // Console.Write("\b\b\b\b\b");
-            // Console.Write("    *");
-
-            Console.Write("\b \b \b \b \b");
-            Console.Write("->");
-            
-            Thread.Sleep(500);
-            Console.Write("\b\b\b");
-            Console.Write("-->");
-
-            Thread.Sleep(500);
-            Console.Write("\b\b\b\b");
-            Console.Write("--->");
-
-            // Thread.Sleep(500);
-            // Console.Write("\b\b\b");
-            // Console.Write(":)");
-
-            Console.Write("\b\b\b\b\b");
+        foreach (string s in animationStrings)
+        {
+            Console.Write(s);
+            Thread.Sleep(800);
+            Console.Write("\b \b");
         }
+
+        // Thread.Sleep(800);
+        // for(int i = 3; i > 0; i--)
+        // {
+        //     Console.Write(".");
+        //     Thread.Sleep(1000);
+        //     // Console.Write("\b \b");
+        // }
+        // Console.WriteLine();
+
+        // for(int i = 0; i < Duration; i++)
+        // {
+        //     // Console.Write("*");
+            
+        //     // Thread.Sleep(800);
+        //     // Console.Write("\b\b");
+        //     // Console.Write(" *");
+
+        //     // Thread.Sleep(800);
+        //     // Console.Write("\b\b\b");
+        //     // Console.Write("  *");
+
+        //     // Thread.Sleep(800);
+        //     // Console.Write("\b\b\b\b");
+        //     // Console.Write("   *");
+
+        //     // Thread.Sleep(800);
+        //     // Console.Write("\b\b\b\b\b");
+        //     // Console.Write("    *");
+
+        //     // Console.Write("\b \b \b \b \b");
+        //     // Console.Write("->");
+            
+        //     // Thread.Sleep(500);
+        //     // Console.Write("\b\b\b");
+        //     // Console.Write("-->");
+
+        //     // Thread.Sleep(500);
+        //     // Console.Write("\b\b\b\b");
+        //     // Console.Write("--->");
+
+        //     // // Thread.Sleep(500);
+        //     // // Console.Write("\b\b\b");
+        //     // // Console.Write(":)");
+
+        //     // Console.Write("\b\b\b\b\b");
+        // }
+
     }
     // public DateTime KeepTime()
     // {

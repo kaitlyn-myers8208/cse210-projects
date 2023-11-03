@@ -23,7 +23,7 @@ class Program
         {
             ReflectionActivity reflectionActivity = new ReflectionActivity("Reflection Activity");
             reflectionActivity.DisplayStartingMessage();
-        
+            reflectionActivity.DisplayReflectionActivity();
             reflectionActivity.DisplayEndingMessage();
         }
         else if(userChoice == 3)
