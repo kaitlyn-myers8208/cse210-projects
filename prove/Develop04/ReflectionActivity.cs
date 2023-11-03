@@ -31,6 +31,10 @@ public class ReflectionActivity : Activity
         DateTime startTime = DateTime.Now;
         DateTime futureTime = startTime.AddSeconds(Duration);
         DateTime currentTime = DateTime.Now;
+
+        Console.WriteLine("Get ready...");
+        DisplayShortTimer();
+        Console.WriteLine();
         
         Random rnd = new Random();
         int rndNum = rnd.Next(0,4);

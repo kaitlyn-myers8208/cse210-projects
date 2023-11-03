@@ -28,6 +28,7 @@ public class Activity
         Console.WriteLine("Good job!");
         DisplayShortTimer();
         Console.WriteLine($"You completed a {NameActivity} for {Duration} seconds");
+        DisplayShortTimer();
         return;
     }
     public void DisplayShortTimer()

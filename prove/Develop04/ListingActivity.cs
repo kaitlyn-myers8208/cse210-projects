@@ -31,14 +31,28 @@ public class ListingActivity : Activity
 
         Console.WriteLine("List as many responses you can to the following prompt: ");
         Console.WriteLine($"\n{_prompts[rndNum]}\n");
-        Console.WriteLine("You may begin in: ");
+        Console.Write("You may begin in: 3");
+        Thread.Sleep(800);
+        Console.Write("\b");
+        Console.Write("3");
+        Thread.Sleep(800);
+        Console.Write("\b");
+        Console.Write("2");
+        Thread.Sleep(800);
+        Console.Write("\b");
+        Console.Write("1");
+        Thread.Sleep(800);
+        Console.Write("\b");
+        Console.Write("Go!");
+        Console.WriteLine();
 
         while(currentTime < futureTime)
         {
             Console.Write(" > ");
             _listingResponses.Add(Console.ReadLine());
 
-            Console.WriteLine();
+            // Console.WriteLine();
+            currentTime = DateTime.Now;
         }
 
         Console.WriteLine($"You listed {_listingResponses.Count} items!\n");
@@ -47,14 +61,6 @@ public class ListingActivity : Activity
         // prompt to keep listing items
         // list for duration
         // displays number of items entered
-
-
-        Console.Write("When you have something in mind, press enter to continue. ");
-        string userResponse = Console.ReadLine();
-        if(userResponse.Length > 0)
-        {
-            System.Environment.Exit(1);
-        }
     }
 
 }
