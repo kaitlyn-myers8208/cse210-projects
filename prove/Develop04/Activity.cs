@@ -26,11 +26,8 @@ public class Activity
     public void DisplayEndingMessage()
     {
         Console.WriteLine("Good job!");
-        // Thread.Sleep(1000);
         DisplayShortTimer();
         Console.WriteLine($"You completed a {NameActivity} for {Duration} seconds");
-        // Thread.Sleep(2000);
-        // DisplayShortTimer();
         return;
     }
     public void DisplayShortTimer()
@@ -71,6 +68,8 @@ public class Activity
             Console.Write("\b \b");
         }
 
+        // POTENTIAL TIMERS
+        
         // Thread.Sleep(800);
         // for(int i = 3; i > 0; i--)
         // {

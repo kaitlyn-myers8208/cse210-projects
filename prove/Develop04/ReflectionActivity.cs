@@ -36,7 +36,7 @@ public class ReflectionActivity : Activity
         int rndNum = rnd.Next(0,4);
         Console.WriteLine("Consider the following prompt: ");
         Console.WriteLine($"\n{_prompts[rndNum]}\n");
-        Console.WriteLine("When you have something in mind, press enter to continue. ");
+        Console.Write("When you have something in mind, press enter to continue. ");
         string userResponse = Console.ReadLine();
         if(userResponse.Length > 0)
         {
@@ -50,7 +50,7 @@ public class ReflectionActivity : Activity
         while(currentTime < futureTime)
         {
             // Console.WriteLine($"{currentTime}, {futureTime}");
-            Console.WriteLine(_reflectQuestions[rndNum]);
+            Console.Write(_reflectQuestions[rndNum]);
             if(rndNum == 9)
             {
                 rndNum = 0;
@@ -59,6 +59,7 @@ public class ReflectionActivity : Activity
             DisplayTimer();
             rndNum++;
             currentTime = DateTime.Now;
+            Console.WriteLine();
         }
         Console.WriteLine();
     }
