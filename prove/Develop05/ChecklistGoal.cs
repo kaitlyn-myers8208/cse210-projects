@@ -24,7 +24,19 @@ public class ChecklistGoal : Goal
     }
     public override void SaveGoal()
     {
+        Console.WriteLine("What is the file name? ");
+        string fileName = Console.ReadLine();
+        Console.WriteLine("Saving file...");
 
+        using (StreamWriter outputFile = new StreamWriter(fileName, true))
+        {
+            outputFile.WriteLine(TotalPoints);
+            foreach (Goal g in Goals)
+            {
+                outputFile.WriteLine($"{g.Name}|{g.Description}|{g.NumPoints}|{g.IsComplete}");
+            }
+        }
+        Console.WriteLine("File saved.");
     } 
     public override void LoadGoal()
     {

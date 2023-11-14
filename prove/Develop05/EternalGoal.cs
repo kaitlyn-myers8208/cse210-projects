@@ -26,10 +26,10 @@ public class EternalGoal : Goal
 
         using (StreamWriter outputFile = new StreamWriter(fileName, true))
         {
-            outputFile.WriteLine(NumPoints);
+            outputFile.WriteLine(TotalPoints);
             foreach (Goal g in Goals)
             {
-                outputFile.WriteLine($"{g.Name}|{g.Description}|{g.NumPoints}");
+                outputFile.WriteLine($"EternalGoal:{g.Name}|{g.Description}|{g.NumPoints}|{g.IsComplete}");
             }
         }
         Console.WriteLine("File saved.");

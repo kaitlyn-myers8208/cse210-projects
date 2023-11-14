@@ -5,8 +5,9 @@ public abstract class Goal
     public string Name { get; set; }
     public string Description { get; set; }
     public int NumPoints { get; set; }
+    public int TotalPoints { get; set; }
+    public bool IsComplete { get; set; }
     public List<Goal> Goals { get; set; }
-    // private List<Goal> Goals = new List<Goal>();
 
     public Goal()
     {
@@ -27,7 +28,7 @@ public abstract class Goal
     }
     public int DisplayCurrentPoints()
     {
-        return NumPoints;
+        return TotalPoints;
     }
     public abstract void DisplayGoal();
     public abstract void CreateGoal();
