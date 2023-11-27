@@ -12,23 +12,66 @@ class Program
         string userInt = Console.ReadLine();
         int userResponse = int.Parse(userInt);
 
+        SimpleGoal goal = new SimpleGoal();
+        
         while (userResponse != 6)
         {
             if (userResponse == 1)
             {
+                Console.WriteLine("The types of Goals are: ");
+                Console.WriteLine(" 1. Simple Goal\n 2. Eternal Goal\n 3. Checklist Goal\n ");
+                Console.Write("Which type of goal would you like to create? ");
+                string goalInt = Console.ReadLine();
+                int goalType = int.Parse(goalInt);
 
+                // Ask for the information then put that in 
+                // the if statements for the constructor to make them
+
+                if (goalType == 1)
+                {
+                    SimpleGoal simpleGoal = new SimpleGoal();
+                    simpleGoal.CreateGoal(simpleGoal);
+                    // simpleGoal.Goals.Add(simpleGoal);
+                }
+                else if (goalType == 2)
+                {
+                    EternalGoal eternalGoal = new EternalGoal();
+                    eternalGoal.CreateGoal(eternalGoal);
+                    // eternalGoal.Goals.Add(eternalGoal);
+                }
+                else if (goalType == 3)
+                {
+                    ChecklistGoal checklistGoal = new ChecklistGoal();
+                    checklistGoal.CreateGoal(checklistGoal);
+                    // checklistGoal.Goals.Add(checklistGoal);
+                }
             }
             else if (userResponse == 2)
             {
+                // make a list of Goals
+                // add each goal to list
+                // print out list with completed or not
+                Console.WriteLine("Listing goals: ");
+                goal.ListGoals();
 
             }
             else if (userResponse == 3)
             {
-
+                // SaveGoal();
             }
             else if (userResponse == 4)
             {
+                Console.WriteLine("What is the file name? ");
+                string fileName = Console.ReadLine();
+                Console.WriteLine("Loading file...");
 
+                string[] lines = System.IO.File.ReadAllLines(fileName);
+                foreach (string line in lines)
+                {
+                    Console.WriteLine(line);            
+                }
+
+                // fix loading formatting
             }
             else if (userResponse == 5)
             {

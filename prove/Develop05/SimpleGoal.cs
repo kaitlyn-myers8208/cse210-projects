@@ -12,15 +12,11 @@ public class SimpleGoal : Goal
     {
 
     }
-    public override void CreateGoal()
-    {
+    // public override void ListGoals()
+    // {
 
-    }
-    public override void ListGoals()
-    {
-
-    }
-    public override void SaveGoal()
+    // }
+    public override void SaveGoals()
     {
         Console.WriteLine("What is the file name? ");
         string fileName = Console.ReadLine();
@@ -36,8 +32,8 @@ public class SimpleGoal : Goal
         }
         Console.WriteLine("File saved.");
     } 
-    public override void LoadGoal()
-    {
+    // public override void LoadGoal()
+    // {
         
-    }
+    // }
 }

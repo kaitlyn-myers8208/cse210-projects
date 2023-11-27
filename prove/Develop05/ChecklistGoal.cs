@@ -14,15 +14,34 @@ public class ChecklistGoal : Goal
     {
 
     }
-    public override void CreateGoal()
+    public override void CreateGoal(Goal goal)
     {
-
+        Console.Write("What is the name of your goal? ");
+        Name = Console.ReadLine();
+        Console.Write("\nWhat is a short description of it? ");
+        Description = Console.ReadLine();
+        Console.Write("\nHow many points is this goal worth? ");
+        string numPointsString = Console.ReadLine();
+        NumPoints = int.Parse(numPointsString);
+        Console.Write("\nHow long should the goal go on for? ");
+        string goalLengthString = Console.ReadLine();
+        GoalLength = int.Parse(goalLengthString);
+        Goals.Add(goal);
     }
     public override void ListGoals()
     {
-
+        if (!IsComplete)
+        {
+            foreach (Goal g in Goals)
+            {
+                int i = 1;
+                Console.WriteLine($"{i}. [ ] {Name} ({Description})");
+                i++;
+            }
+            // add number completed
+        }
     }
-    public override void SaveGoal()
+    public override void SaveGoals()
     {
         Console.WriteLine("What is the file name? ");
         string fileName = Console.ReadLine();
@@ -38,8 +57,8 @@ public class ChecklistGoal : Goal
         }
         Console.WriteLine("File saved.");
     } 
-    public override void LoadGoal()
-    {
+    // public override void LoadGoal()
+    // {
         
-    }
+    // }
 }
