@@ -3,7 +3,10 @@ using System;
 class Program
 {
     static void Main(string[] args)
-    {        
+    {   
+        List<Goal> Goals = new List<Goal>();
+                // ? Would this be in main or in a class? Why?
+
         Console.WriteLine("You have 0 points.\n");
 
         Console.WriteLine("Menu Options: ");
@@ -29,20 +32,24 @@ class Program
 
                 if (goalType == 1)
                 {
+                    
                     SimpleGoal simpleGoal = new SimpleGoal();
                     simpleGoal.CreateGoal(simpleGoal);
+                    Goals.Add(simpleGoal);
                     // simpleGoal.Goals.Add(simpleGoal);
                 }
                 else if (goalType == 2)
                 {
                     EternalGoal eternalGoal = new EternalGoal();
                     eternalGoal.CreateGoal(eternalGoal);
+                    Goals.Add(eternalGoal);
                     // eternalGoal.Goals.Add(eternalGoal);
                 }
                 else if (goalType == 3)
                 {
                     ChecklistGoal checklistGoal = new ChecklistGoal();
                     checklistGoal.CreateGoal(checklistGoal);
+                    Goals.Add(checklistGoal);
                     // checklistGoal.Goals.Add(checklistGoal);
                 }
             }
@@ -52,15 +59,36 @@ class Program
                 // add each goal to list
                 // print out list with completed or not
                 Console.WriteLine("Listing goals: ");
-                goal.ListGoals();
+                goal.ListGoals(Goals);
+                        // ? If I'm having to create a blank object to use the
+                        // method inside a class, should that be a method inside
+                        // the class?
+
+                        // ? Is the only way to access anything from a class is
+                        // to have an object made from that class and use that to
+                        // call the methods?
 
             }
             else if (userResponse == 3)
             {
                 // SaveGoal();
+                Console.WriteLine("What is the file name? ");
+                string fileName = Console.ReadLine();
+                Console.WriteLine("Saving file...");
+
+                using (StreamWriter outputFile = new StreamWriter(fileName, true))
+                {
+                    outputFile.WriteLine(goal.TotalPoints);
+                    foreach (Goal g in Goals) // added
+                    {
+                        outputFile.WriteLine($"SimpleGoal:{g.Name}|{g.Description}|{g.NumPoints}|{g.IsComplete}");
+                    }
+                }
+                Console.WriteLine("File saved.");
             }
             else if (userResponse == 4)
             {
+                // LoadGoal()
                 Console.WriteLine("What is the file name? ");
                 string fileName = Console.ReadLine();
                 Console.WriteLine("Loading file...");

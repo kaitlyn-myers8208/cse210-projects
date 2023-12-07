@@ -14,7 +14,7 @@ public class EternalGoal : Goal
     // {
         
     // }
-    public override void SaveGoals()
+    public override void SaveGoals(List<Goal> goals)
     {
         Console.WriteLine("What is the file name? ");
         string fileName = Console.ReadLine();
@@ -23,7 +23,7 @@ public class EternalGoal : Goal
         using (StreamWriter outputFile = new StreamWriter(fileName, true))
         {
             outputFile.WriteLine(TotalPoints);
-            foreach (Goal g in Goals)
+            foreach (Goal g in goals)
             {
                 outputFile.WriteLine($"EternalGoal:{g.Name}|{g.Description}|{g.NumPoints}|{g.IsComplete}");
             }

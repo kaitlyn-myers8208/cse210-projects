@@ -26,13 +26,13 @@ public class ChecklistGoal : Goal
         Console.Write("\nHow long should the goal go on for? ");
         string goalLengthString = Console.ReadLine();
         GoalLength = int.Parse(goalLengthString);
-        Goals.Add(goal);
+        // Goals.Add(goal);
     }
-    public override void ListGoals()
+    public override void ListGoals(List<Goal> goals)
     {
         if (!IsComplete)
         {
-            foreach (Goal g in Goals)
+            foreach (Goal g in goals)
             {
                 int i = 1;
                 Console.WriteLine($"{i}. [ ] {Name} ({Description})");
@@ -41,7 +41,7 @@ public class ChecklistGoal : Goal
             // add number completed
         }
     }
-    public override void SaveGoals()
+    public override void SaveGoals(List<Goal> goals)
     {
         Console.WriteLine("What is the file name? ");
         string fileName = Console.ReadLine();
@@ -50,7 +50,7 @@ public class ChecklistGoal : Goal
         using (StreamWriter outputFile = new StreamWriter(fileName, true))
         {
             outputFile.WriteLine(TotalPoints);
-            foreach (Goal g in Goals)
+            foreach (Goal g in goals)
             {
                 outputFile.WriteLine($"{g.Name}|{g.Description}|{g.NumPoints}|{g.IsComplete}");
             }

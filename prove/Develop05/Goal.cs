@@ -8,7 +8,9 @@ public abstract class Goal
     public int NumPoints { get; set; }
     public int TotalPoints { get; set; }
     public bool IsComplete { get; set; }
-    public List<Goal> Goals { get; set; } = new List<Goal>();
+    // public List<Goal> Goals { get; set; }
+    // Goals = new List<Goal>
+    // public List<Goal> Goals { get; set; } = new List<Goal>();
     // private List<Goal> Goals = new List<Goal>();
 
     // public List<Goal> GetList()
@@ -53,13 +55,13 @@ public abstract class Goal
         Console.Write("How many points is this goal worth? ");
         string numPointsString = Console.ReadLine();
         goal.NumPoints = int.Parse(numPointsString);
-        Goals.Add(goal);
+        // Goals.Add(goal);
     }
-    public virtual void ListGoals()
+    public virtual void ListGoals(List<Goal> goals)
     {
         Console.WriteLine("Listing goal within Goal part 1");
         int i = 1;
-        foreach (Goal g in Goals)
+        foreach (Goal g in goals)
         {
             Console.WriteLine($"{i}. [ ] {g.Name} ({g.Description})");
             i++;
@@ -78,7 +80,7 @@ public abstract class Goal
             // }
         }
     }
-    public abstract void SaveGoals();
+    public abstract void SaveGoals(List<Goal> goals);
     // public void LoadGoals()
     // {
     //     Console.WriteLine("What is the file name? ");
