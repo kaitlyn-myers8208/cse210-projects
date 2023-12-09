@@ -1,4 +1,5 @@
 using System;
+using System.Security.Cryptography;
 
 class Program
 {
@@ -8,15 +9,15 @@ class Program
         SimpleGoal goal = new SimpleGoal();
         int totalPoints = 0;
 
-        Console.WriteLine($"You have {totalPoints} points.\n");
+        Console.WriteLine($"You have {totalPoints} points\n");
 
         Console.WriteLine("Menu Options: ");
-        Console.WriteLine(" 1. Create New Goal\n 2. List Goals\n 3. Save Goals\n 4. Load Goals\n 5. Record Event\n 6. Quit");
+        Console.WriteLine(" 1. Create New Goal\n 2. List Goals\n 3. Save Goals\n 4. Load Goals\n 5. Record Event\n 6. View Level\n 7. Quit");
         Console.Write("Select a choice from the menu: ");
         string userInt = Console.ReadLine();
         int userResponse = int.Parse(userInt);
         
-        while (userResponse != 6)
+        while (userResponse != 7)
         {
             if (userResponse == 1)
             {
@@ -144,6 +145,39 @@ class Program
                 Goals[selectedGoal].RecordGoal();
                 totalPoints += Goals[selectedGoal].DisplayPoints();                
             }
+            else if (userResponse == 6)
+            {
+                Console.WriteLine($"You currently have {totalPoints} points meaning you are a...");
+                DisplayTimer();
+                if (totalPoints <= 200)
+                {
+                    Console.WriteLine("\nCURIOUS GNOME");
+                }
+                else if (totalPoints <= 500 && totalPoints > 200)
+                {
+                    Console.WriteLine("\nFANTASTICAL FAIRY");
+                }
+                else if (totalPoints <= 1000 && totalPoints > 500)
+                {
+                    Console.WriteLine("\nRELENTLESS ZOMBIE");
+                }
+                else if (totalPoints <= 5000 && totalPoints > 1000)
+                {
+                    Console.WriteLine("\nMISCHIEVOUS LEPRECHAUN");
+                }
+                else if (totalPoints <= 10000 && totalPoints > 5000)
+                {
+                    Console.WriteLine("\nFEARLESS BASILISK");
+                }
+                else if (totalPoints > 10000)
+                {
+                    Console.WriteLine("\nLEGENDARY PHOENIX");
+                }
+
+                Thread.Sleep(1000);
+                Console.WriteLine("\nYou may now proceed");
+                Thread.Sleep(500);
+            }
             else
             {
                 Console.WriteLine("That's not a valid response. Please try again");
@@ -151,11 +185,33 @@ class Program
 
             Console.WriteLine($"\nYou have {totalPoints} points");
             Console.WriteLine("Menu Options: ");
-            Console.WriteLine(" 1. Create New Goal\n 2. List Goals\n 3. Save Goals\n 4. Load Goals\n 5. Record Event\n 6. Quit");
+            Console.WriteLine(" 1. Create New Goal\n 2. List Goals\n 3. Save Goals\n 4. Load Goals\n 5. Record Event\n 6. View Level\n 7. Quit");
             Console.Write("Select a choice from the menu: ");
         
             userInt = Console.ReadLine();
             userResponse = int.Parse(userInt);
+        }
+
+        void DisplayTimer()
+        {
+            List<string> animationStrings = new List<string>()
+            {
+                "|",
+                "/",
+                "-",
+                "\\",
+                "|",
+                "/",
+                "-",
+                "\\",
+            };
+
+            foreach (string s in animationStrings)
+            {
+                Console.Write(s);
+                Thread.Sleep(600);
+                Console.Write("\b \b");
+            }
         }
     }
 }
