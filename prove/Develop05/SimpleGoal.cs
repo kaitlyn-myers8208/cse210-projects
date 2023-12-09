@@ -7,44 +7,18 @@ public class SimpleGoal : Goal
     {
 
     }
-
-
-    public override void DisplayGoal()
+    public override void RecreateGoal(Goal goal, string details)
     {
-
+        string[] parts = details.Split("|");
+        Name = parts[0];
+        Description = parts[1];
+        string numPointsString = parts[2];
+        NumPoints = int.Parse(numPointsString);
+        string isCompleteString = parts[3];
+        IsComplete = bool.Parse(isCompleteString);
     }
-    public override void SaveGoals(List<Goal> goals)
+    public override string SaveGoal()
     {
-    
+        return $"SimpleGoal:{Name}|{Description}|{NumPoints}|{IsComplete}";
     }
-    // public override void ListGoals()
-    // {
-
-    // }
-    // public override void SaveGoals()
-    // {
-    //     // SimpleGoal newGoal = new SimpleGoal(); // added
-    //     Console.WriteLine("What is the file name? ");
-    //     string fileName = Console.ReadLine();
-    //     Console.WriteLine("Saving file...");
-
-    //     using (StreamWriter outputFile = new StreamWriter(fileName, true))
-    //     {
-    //         outputFile.WriteLine(TotalPoints);
-    //         foreach (Goal g in newGoal.GetList()) // added
-    //         {
-    //             outputFile.WriteLine($"SimpleGoal:{g.Name}|{g.Description}|{g.NumPoints}|{g.IsComplete}");
-    //         }
-    //     }
-    //     Console.WriteLine("File saved.");
-    // } 
-    // public override void SaveGoals()
-    // {
-    //     outputFile.WriteLine($"SimpleGoal:{g.Name}|{g.Description}|{g.NumPoints}|{g.IsComplete}");
-
-    // } 
-    // public override void LoadGoal()
-    // {
-
-    // }
 }

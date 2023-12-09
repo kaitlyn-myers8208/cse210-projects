@@ -1,64 +1,86 @@
 public class ChecklistGoal : Goal
 {
     public int GoalLength { get; set; }
+    public int NumCompleted { get; set; }
+    public int BonusPoints { get; set; }
 
     public ChecklistGoal() : base()
     {}
     public ChecklistGoal(string name, string description, int numPoints) : base(name, description, numPoints)
+    {}
+
+
+    public override int DisplayPoints()
     {
-
-    }
-
-
-    public override void DisplayGoal()
-    {
-
+        if (IsComplete)
+        {
+            return NumPoints + BonusPoints;
+        }
+        else
+        {
+            return NumPoints;
+        }
     }
     public override void CreateGoal(Goal goal)
     {
         Console.Write("What is the name of your goal? ");
         Name = Console.ReadLine();
-        Console.Write("\nWhat is a short description of it? ");
+        Console.Write("What is a short description of it? ");
         Description = Console.ReadLine();
-        Console.Write("\nHow many points is this goal worth? ");
+        Console.Write("How many points is this goal worth? ");
         string numPointsString = Console.ReadLine();
         NumPoints = int.Parse(numPointsString);
-        Console.Write("\nHow long should the goal go on for? ");
+        Console.Write("How many times should you accomplish this goal for a bonus? ");
         string goalLengthString = Console.ReadLine();
         GoalLength = int.Parse(goalLengthString);
-        // Goals.Add(goal);
+        Console.Write("How many bonus points? ");
+        string bonusPointsString = Console.ReadLine();
+        BonusPoints = int.Parse(bonusPointsString);
     }
-    public override void ListGoals(List<Goal> goals)
+    public override void RecreateGoal(Goal goal, string details)
     {
-        if (!IsComplete)
+        string[] parts = details.Split("|");
+        Name = parts[0];
+        Description = parts[1];
+        string numPointsString = parts[2];
+        NumPoints = int.Parse(numPointsString);
+        string bonusPointsString = parts[3];
+        BonusPoints = int.Parse(bonusPointsString);
+        string goalLengthstring = parts[4];
+        GoalLength = int.Parse(goalLengthstring);
+        string numCompletedString = parts[5];
+        NumCompleted = int.Parse(numCompletedString);
+        string isCompleteString = parts[6];
+        IsComplete = bool.Parse(isCompleteString);
+    }
+    public override void ListGoals(Goal goal, int i)
+    {
+        if(goal.IsComplete)
         {
-            foreach (Goal g in goals)
-            {
-                int i = 1;
-                Console.WriteLine($"{i}. [ ] {Name} ({Description})");
-                i++;
-            }
-            // add number completed
+            Console.WriteLine($"{i}. [X] {goal.Name} ({goal.Description}) -- Currently Completed: {GoalLength}/{GoalLength}");
+        }
+        else
+        {
+            Console.WriteLine($"{i}. [ ] {goal.Name} ({goal.Description}) -- Currently Completed: {NumCompleted}/{GoalLength}");
         }
     }
-    public override void SaveGoals(List<Goal> goals)
-    {
-        Console.WriteLine("What is the file name? ");
-        string fileName = Console.ReadLine();
-        Console.WriteLine("Saving file...");
 
-        using (StreamWriter outputFile = new StreamWriter(fileName, true))
+    public override string SaveGoal()
+    {
+        return $"ChecklistGoal:{Name}|{Description}|{NumPoints}|{BonusPoints}|{GoalLength}|{NumCompleted}|{IsComplete}";
+    }
+    public override void RecordGoal()
+    {
+        NumCompleted++;
+        if (NumCompleted == GoalLength)
         {
-            outputFile.WriteLine(TotalPoints);
-            foreach (Goal g in goals)
-            {
-                outputFile.WriteLine($"{g.Name}|{g.Description}|{g.NumPoints}|{g.IsComplete}");
-            }
+            IsComplete = true;
+            Console.WriteLine($"Congratulations! You have earned {NumPoints} points and {BonusPoints} bonus points!");
+            Console.WriteLine($"That's {NumPoints + BonusPoints} points in total!");
         }
-        Console.WriteLine("File saved.");
-    } 
-    // public override void LoadGoal()
-    // {
-        
-    // }
+        else
+        {
+            Console.WriteLine($"Congratulations! You have earned {NumPoints} points!");
+        }
+    }
 }

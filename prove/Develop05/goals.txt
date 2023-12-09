@@ -1,0 +1,4 @@
+100
+SimpleGoal:Church|Go to church this week|100|True
+EternalGoal:Scriptures|Read scriptures for at least 30 minutes|100
+ChecklistGoal:Temple|Perform ordinance in temple|1000|500|500|0|False
